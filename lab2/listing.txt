@@ -1,0 +1,10 @@
+.:
+total 16
+drw-rwxrwx. 2 liveuser liveuser 4096 Oct 11 20:29 dir
+-r--r-----. 1 root     liveuser    5 Oct 11 20:27 file
+-rw-------. 1 liveuser liveuser    0 Oct 11 20:35 file1
+-rw-rw-rw-. 1 liveuser liveuser    0 Oct 11 20:35 file2
+
+./dir:
+total 0
+-????????? ? ? ? ?            ? new_file

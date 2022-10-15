@@ -1,0 +1,32 @@
+   22  mkdir test
+   23  cd test/
+   24  touch file
+   25  chmod 000 file 
+   26  ls -ll
+   27  echo "test" > file
+   28  chmod u+w file 
+   29  ls -ll
+   30  echo "test" > file 
+   31  cat file 
+   32  chmod g+r file 
+   33  cat file 
+   34  chmod u+r file 
+   35  cat file 
+   36  mkdir dir
+   37  cd dir 
+   38  echo "file 2" > new_file
+   39  cd ..
+   40  ls ./dir
+   41  chmod 677 dir/
+   42  ls dir/
+   43  rm dir/new_file 
+   44  chown root file 
+   45  chgrp root file 
+   46  umask 177
+   47  touch file1
+   48  ls -l
+   49  umask 111
+   50  touch file2
+   51  ls -l
+   52  cat file
+   53  history > history_user.txt
