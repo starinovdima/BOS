@@ -1,4 +1,5 @@
 #! /bin/bash
+
 echo list
 ls ~/*.txt -lA | awk '{print $9}'
 echo size:
