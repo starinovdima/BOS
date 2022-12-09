@@ -1,4 +1,5 @@
 #! /bin/bash
+
 WHOAMI=$(whoami)
 echo "--- $WHOAMI processes amout ---"
 ps aux | awk '{
