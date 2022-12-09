@@ -1,4 +1,5 @@
 #! /bin/bash
+
 PWD=$(pwd)
 
 echo " catalogs "
