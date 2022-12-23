@@ -1,2 +1,3 @@
-#! /bin/bash
-ls ~/ | zgrep *.txt | wc
+#!/bin/bash
+
+find ~ -type f -name "*.txt" | wc -l
