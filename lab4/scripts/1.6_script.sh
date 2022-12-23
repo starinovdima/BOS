@@ -1,9 +1,8 @@
-#! /bin/bash
+#!/bin/bash
 
-HOME_DIR=/home/$(whoami)
-echo "Home directory $HOME_DIR"
-echo "Usual files"
-ls  $HOME_DIR
-echo ""
-echo "Shadow files"
-ls -Ad $HOME_DIR/.*
+echo "Домашний каталог пользователя\n $USER"
+echo "Содержит обычных файлов: "
+find ~/ -maxdepth 1 -type f \! -name ".*" | wc -l
+
+echo "Содержит скрытых файлов: "
+find ~/ -maxdepth 1 -type f -name ".*" | wc -l
