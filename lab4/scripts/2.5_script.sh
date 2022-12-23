@@ -1,8 +1,5 @@
-#! /bin/bash
-
-echo list
-ls ~/*.txt -lA | awk '{print $9}'
-echo size:
-ls ~/*.txt -lA | awk '{sum += $5;} END {printf("%sB\n", sum)}'
-echo lines:
-cat ~/*.txt | wc -l 
+#!/bin/bash
+find ~ -type f -name "*.txt" > /tmp/tmp.txt
+cat /tmp/tmp.txt | xargs du -bc 2>/dev/null | tail -1 | cut -f1
+cat /tmp/tmp.txt  | xargs wc -l 2>/dev/null | tail -1 | awk '{print $1}'
+rm /tmp/tmp.txt
