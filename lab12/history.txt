@@ -1,0 +1,70 @@
+  439  cd myrepo/
+  440  ls
+  441  cd ..
+  442  ls
+  443  ldd /bin/ls | grep selinux
+  444  ls -l /etc/selinux/
+  445  ls -l /etc/selinux/targeted/
+  446  id -Z
+  447  ls -Z /etc/passwd /etc/group /etc/shadow
+  448  ls -Z /etc/login.defs /etc/sudoers
+  449  ls -1Z /usr/bin/passwd 
+  450  ls -1Z /etc/passwd /etc/group /etc/shadow
+  451  ls -Z /usr/sbin/useradd
+  452  getfattr -n security.selinux /etc/passwd
+  453  sudo yum install xattr
+  454  sudo vim /etc/yum.repos.d/my.repo 
+  455  sudo yum install xattr
+  456  sudo yum install attr
+  457  getfattr -n security.selinux /etc/passwd
+  458  ps Zaux
+  459  ls /proc/$$/attr
+  460  ps Z $(pgrep passwd)
+  461  sudo netstat -tnlpZ 
+  462  sudo yum install -y netstat
+  463  sudo yum install -y net-tools
+  464  sestatus
+  465  getsebool -a | grep httpd
+  466  seinfo 
+  467  sudo yum install setools-console
+  468  seinfo
+  469  seinfo -cfile -x
+  470  for i in $(seinfo --class | grep file); do echo "----"; seinfo --class $i -x; done
+  471  seinfo -class dir -x
+  472  seinfo --class dir -x
+  473  grep 'httpd_.*_t' /etc/selinux/targeted/contexts/files/file_contexts
+  474  semanage fcontext -l
+  475  sudo semanage fcontext -l
+  476  cd mephi-oss-2022-2023/labs/lab12
+  477  mkdir -p mephi-oss-2022-2023/labs/lab12
+  478  cd mephi-oss-2022-2023/labs/lab12
+  479  touch test_file
+  480  ls -Z test_file 
+  481  mount --help
+  482  mount --help | grep -E '(def)?contex'
+  483  mount --help | grep -E 'context'
+  484  mount --help | grep 'context'
+  485  man mount
+  486  chcon --help
+  487* 
+  488  chcon -t httpd_sys_content_t test_file 
+  489  ls -Z
+  490  touch test_file_2
+  491  chcon --reference test_file test_file_2 
+  492  ls -Z
+  493  sudo semanage fcontext -l
+  494  sudo semanage fcontext -a -t sshd_key_t '/data/keys/*.*'
+  495  sudo restorecon -r /data/keys
+  496  sesearch -T -s httpd_t -t var_log_t
+  497  sesearch -T -s httpd_t -t tmp_t
+  498  sesearch --allow --source passwd_t --target shadow_t --class file
+  499  sesearch -A -s passwd_t -t passwd_exec_t -c file
+  500  sesearch -A -s unconfined_t -t passwd_exec_t -c file
+  501  esearch -A -s unconfined_t -t passwd_t -c process
+  502  sesearch -A -s unconfined_t -t passwd_t -c process
+  503  sesearch --type_trans -s unconfined_t -t passwd_exec_t
+  504  history
+  505  history -n 70 > history.txt
+  506  cat history.txt 
+  507  history 70
+  508  history 70 > history.txt
